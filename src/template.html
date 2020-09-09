@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+    <script>
+      window.Buffer = { isBuffer: function() { } };
+      window.process = window.process || {}
+      window.process.browser = 'true'
+    </script>
 		<meta charset="utf-8">
 		<title><% preact.title %></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">

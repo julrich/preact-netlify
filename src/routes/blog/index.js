@@ -3,8 +3,16 @@ import { Suspense } from 'preact/compat';
 import { usePrerenderData } from '@preact/prerender-data-provider';
 import Markdown from 'markdown-to-jsx';
 import { FormattedCodeBlock } from './formatted-code-block';
+import { ControlPane } from 'netlify-cms-core';
+import { List }  from 'immutable';
 
 import style from './style';
+
+const Editor = (props) => (
+  <div>Hallo!</div>
+);
+
+const fields = List([Editor]);
 
 const blogs = (props) => {
 	const [data, isLoading] = usePrerenderData(props);
@@ -56,6 +64,7 @@ function getBlogBody(data, isLoading) {
 		return (
 			<div>
 				<h1 class={style.blogtitle}>{details.title}</h1>
+        <ControlPane fields={fields} />
 				{ details.subtitle && <caption class={style.blogsubtitle}>{details.subtitle}</caption> }
 				{ details.cover && <div class={style.blogcover} style={`background-image:url(${details.cover})`} /> }
 				<div class={style.blogbody}>
